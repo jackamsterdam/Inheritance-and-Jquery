@@ -75,8 +75,43 @@ function UiRender(firstName, lastName, city, street, buildingNumber) {
 }
 
 UiRender.prototype.renderReadPerson = function() {
-    return this.firstName + ' ' + this.lastName
+    let fN = $('<input>').attr({
+        type: 'text',
+        id: 'firstName',
+        name: 'firstName'
+    });
+    let lN = $('<input>').attr({
+        type: 'text',
+        id: 'lastName',
+        name: 'lastName'
+    });
+    let addPersonBtn = $('<input>').attr({
+        type: 'button',
+        id: 'addPerson',
+        innerHTML: 'Add Person',
+        class: 'btn-styled',
+        click: function() {
+            console.log($('#firstName').val() + ' ' + $('#lastName').val())
+        }
+    });
+
+    $("body").append(fN, lN, addPersonBtn); // Append the new elements
+
 }
+
+// UiRender.prototype.renderReadPerson = function() {
+//     // return this.firstName + ' ' + this.lastName
+//     $("<p></p>").text("Text.");
+
+// function appendText() {
+//     var txt1 = "<p>Text.</p>";               // Create element with HTML 
+//     var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+//     var txt3 = document.createElement("p");  // Create with DOM
+//     txt3.innerHTML = "Text.";
+//     $("body").append(txt1, txt2, txt3);      // Append the new elements
+//   }
+
+// }
 
 UiRender.prototype.renderReadAddress = function() {
     return this.city + ' ' + this.street + ' ' + this.buildingNumber
@@ -131,3 +166,20 @@ $('#test2').html('this is what got returned from select: ' + '<strong>' + jackRe
 
 
 $('#test3').html('this is what got returned from select: ' + '<strong>' + $('#items').val() + '</strong>' + ' yep thats what you got')
+
+
+
+
+
+
+
+
+
+// notes: 
+// function appendText() {
+//     var txt1 = "<p>Text.</p>";               // Create element with HTML 
+//     var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+//     var txt3 = document.createElement("p");  // Create with DOM
+//     txt3.innerHTML = "Text.";
+//     $("body").append(txt1, txt2, txt3);      // Append the new elements
+//   }
