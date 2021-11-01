@@ -33,19 +33,21 @@ function Item(itemName, itemId, itemPrice) {
 }
 
 // 5. Make a Order entity:
-function Order(orderId, ? ? ? ? ? ? ? ? ITEM, customerDetails) {
+function Order(orderId, customerDetails) {
     this.orderId = orderId;
     this.items = [] //new Item()
     this.customerDetails = customerDetails
 }
 
-Order.prototype.addItemToOrder = function(itemPrice, itemName, ItemId) {
+Order.prototype.addItemToOrder = function(itemName, itemId, itemPrice) {
     //do i need this.itemPrice = itemPrice???????????????????
-    let newItem = {
-        itemPrice,
-        itemName,
-        ItemId
-    }
+    let newItem = new Item(itemName, itemId, itemPrice)
+
+    // let newItem = {
+    //     itemPrice,
+    //     itemName,
+    //     ItemId
+    // }
     this.items.push(newItem)
 }
 
@@ -59,8 +61,9 @@ Order.prototype.getTotalPrice = function() {
 
 let jackCustomer = new Customer('Tel Aviv', 'yehuda levi', 79, 'Jack', 'Amsterdam')
 jackCustomer.getFullName() //'Jack Amsterdam'
-
-//############################################################################################ PART 2 ######################################################################
+let newOrder = new Order('55238243', jackCustomer)
+newOrder.addItemToOrder('the item name', 777, 35)
+    //############################################################################################ PART 2 ######################################################################
 
 
 function UiRender(firstName, lastName, city, street, buildingNumber) {
